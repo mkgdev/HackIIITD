@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.set('view engine','ejs');
 app.use(express.static(__dirname + '/public'));
 app.use(methodOverride("_method"));
-app.use(controller);
+
 
 //--------------------------------------------------------------------------------------------------------------------------
 var DBURL = process.env.url;
@@ -27,19 +27,8 @@ if(!DBURL)
 
 //-------------------------------------
 
+app.use(flash());
 
-
-
-
-//MiddleWare
-
-
-//app.use(function(req, res, next){
-//   res.locals.currentUser    = req.user;
-//   res.locals.error          = req.flash("error");
-//   res.locals.success        = req.flash("success");
-//   next();
-//});
 
 
 //========================================================================
@@ -49,8 +38,8 @@ if(!DBURL)
 app.use(require("express-session")({
        
        secret:          "edyogindustry",
-       resave:           false,
-       saveUninitialized: false
+       resave:           true,
+       saveUninitialized: true
 
 }));
 
@@ -62,28 +51,38 @@ passport.use(new LocalStrategy(User.authenticate()));
 
 // serialize/deserialize
 
- passport.serializeUser(function(user, done) {
-        done(null, user.id); 
- });
+// passport.serializeUser(function(user, done) {
+//        done(null, user.id); 
+// });
+//
+//
+//    passport.deserializeUser(function(id, done) {
+//        User.findById(id, function(err, user) {
+//            done(err, user);
+//        });
+//    });
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 
-    passport.deserializeUser(function(id, done) {
-        User.findById(id, function(err, user) {
-            done(err, user);
-        });
-    });
 
 
 
+//middleware
 
-
-
-
+app.use(function(req, res, next){
+   res.locals.currentUser    = req.user;
+   res.locals.error          = req.flash("error");
+   res.locals.success        = req.flash("success");
+   next();
+});
 
 
 
 //------------------------------------------------------------------------
 
+app.use(controller);
 
 
 //listening routes

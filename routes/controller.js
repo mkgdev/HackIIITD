@@ -68,19 +68,26 @@ router.post("/register", function(req, res){
             if(err) {
               console.log(err); 
               
-//              req.flash("error", err.message);
+              req.flash("error", err.message);
               return res.render("register");
             }
 
         passport.authenticate("local")(req, res, function(){
         
-//          req.flash("success" + req.username);
+          req.flash("success" + req.username);
       
           res.redirect("/");
         });
 
 
       });
+
+});
+
+router.get("/logout", function(req, res){
+req.logout();
+  req.flash("success", "Logged you out!!");
+  res.redirect("/");
 
 });
 

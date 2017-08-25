@@ -1,0 +1,45 @@
+html {
+    height: 100%;
+}
+
+body{	
+	
+    opacity: 1.0;
+    height: 100%;
+}
+
+.gear-img{ 
+    
+    margin: 80px auto;
+    display: inline-block;
+    position: relative;
+    height: 371px;
+    left: 33%;
+    
+}
+
+.gear-img img {
+    
+    height: 100%;
+    
+}
+
+.jumbotron-landing {
+    
+    background: transparent;
+    margin-top: -10px;
+}
+
+.jumbotron-landing > h1{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    font-weight:800;
+    margin-top: -75px;
+    text-shadow:  2px 1px 5px black;
+}
+
+.btn-connect {
+    margin-left: 45%;
+    margin-top: 1%;
+}

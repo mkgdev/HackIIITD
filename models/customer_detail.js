@@ -7,7 +7,7 @@ var customerSchema = new schema({
   cluster : [{type:String}],
   email : String,
   contact : Number,
-  turnover : Number,
+  //turnover : Number,
   address : String,
   location : String,
   industry : String,

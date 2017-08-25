@@ -11,6 +11,6 @@ var UserSchema = new schema(
     }
 });
 
-UserSchema.plugin(passpoortLocalMongoose)
+UserSchema.plugin(passpoortLocalMongoose);
 
 var user = module.exports = mongoose.model('User', UserSchema);

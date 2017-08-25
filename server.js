@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var flash         = require("connect-flash");
 var mongoose = require('mongoose');
 var methodOverride = require('method-override');
 var controller = require('./routes/controller.js');
@@ -14,6 +15,19 @@ app.use(express.static(__dirname + '/public'));
 app.use(methodOverride("_method"));
 app.use(controller);
 
+//--------------------------------------------------------------------------------------------------------------------------
+var DBURL = process.env.url;
+
+if(!DBURL)
+    {
+        DBURL= "mongodb://localhost/edyog" ;
+    }
+
+ mongoose.connect(DBURL);
+
+//-------------------------------------
+
+
 
 
 
@@ -22,7 +36,9 @@ app.use(controller);
 
 //app.use(function(req, res, next){
 //   res.locals.currentUser    = req.user;
-//    
+//   res.locals.error          = req.flash("error");
+//   res.locals.success        = req.flash("success");
+//   next();
 //});
 
 
@@ -47,8 +63,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 // serialize/deserialize
 
  passport.serializeUser(function(user, done) {
-        done(null, user.id);
-     
+        done(null, user.id); 
  });
 
 

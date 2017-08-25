@@ -19,5 +19,5 @@ app.use(controller);
 //listening routes
 
 app.listen(2000,function(){
-  console.log('Magic happens on port 3000');
+  console.log('Magic happens on port 2000');
 });

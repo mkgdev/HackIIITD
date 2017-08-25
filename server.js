@@ -14,6 +14,15 @@ app.use(controller);
 
 
 
+//MiddleWare
+
+
+//app.use(function(req, res, next){
+//   res.locals.currentUser    = req.user;
+//    
+//});
+
+
 
 
 //listening routes

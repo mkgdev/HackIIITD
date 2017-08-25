@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var collaborater = require('../models/collaborator.js');
+var collaborater = require('../models/customer_detail');
 
 
 //Landing page

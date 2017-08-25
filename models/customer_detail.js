@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var schema = mongoose.schema;
+var schema = mongoose.Schema;
 
 var customerSchema = new schema({
   customerName : {type:String,required:true},

@@ -6,6 +6,7 @@ var methodOverride = require('method-override');
 var controller = require('./routes/controller.js');
 var passport   = require('passport');
 var LocalStrategy = require('passport-local');
+var User          = require('./models/user.js');
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.set('view engine','ejs');

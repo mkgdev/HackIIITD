@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var mongoose = require('mongoose');
+var collaborater = require('../models/collaborator.js');
 
 
 //Landing page
@@ -9,7 +11,15 @@ router.get('/', function(req, res){
 });
 
 router.get('/connect',function(req,res){
-  res.send('Connet with industries around you');
+
+    collaborater.find({}, function(err, collab)                 
+  {
+    res.render('../views/connect', {collab: collab});
+    
+   }                  
+  );
+    
+    
 });
 
 router.get('/market',function(req,res){

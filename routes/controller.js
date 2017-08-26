@@ -13,6 +13,9 @@ router.get('/', function(req, res){
   res.render('../views/landing');
 });
 
+//=================================
+//        Connect Routes
+//=====================================
 router.get('/connect',function(req,res){
 
     collaborater.find({}, function(err, collab)                 
@@ -24,6 +27,22 @@ router.get('/connect',function(req,res){
     
     
 });
+
+router.get('/connect/show/:id', function(req,res)
+{          
+     collaborater.find({}, function(err, collab)
+    {
+         
+         res.render('../views/connectShow', {collab:collab});
+         
+         
+     });
+     
+    
+}          
+);
+
+//--------------------------------------------------
 
 router.get('/market',function(req,res){
   res.send('Trade with industries near you');

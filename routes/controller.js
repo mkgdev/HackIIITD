@@ -23,7 +23,7 @@ router.get('/connect',function(req,res){
 
     customerDetail.find({}, function(err, customer)
   {
-    console.log(customer);
+ 
     res.render('../views/connect', {customer: customer});
 
    }
@@ -36,7 +36,8 @@ router.get('/connect/show/:id', function(req,res)
 {          
      customerDetail.findById(req.params.id, function(err, customer)
     {
-        console.log(customer);
+     
+     
          res.render('../views/connectShow', {user:customer});
          
          
@@ -46,6 +47,13 @@ router.get('/connect/show/:id', function(req,res)
 }          
 );
 
+
+//=================================================
+//       Market
+//================================================
+
+
+//---------------------------------------------------------
 //--------------------------------------------------
 
 router.get('/market',middlware.isLoggedIn,function(req,res){

@@ -14,8 +14,10 @@
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-showdesc">
               <h1><%= user.companyName %></h1>
                <h4>Owner - <%= user.customerName %> </h4>
+<!--
             <h4>Share <span style="padding:0 5px;"></span><span><i class="fa fa-whatsapp" aria-hidden="true"></i></span><span style="padding:0 5px;"></span><span><i class="fa fa-facebook-official" aria-hidden="true"></i>
 </span></h4>
+-->
            
             <p><%= user.description %></p>
               
@@ -29,10 +31,7 @@
                 <hr class="divider">
                 
         <h4>Collaborators</h4>
-                
-     
-            
-            
+
 <!--                <div><a href="#" class="btn btn-default btn-lg btn-show" style="background-color:#e7e7e7">Add to Basket</a></div>-->
                 
             
@@ -40,6 +39,31 @@
             
               </div>
          </div>
+         
+         <div class="book-details">
+         
+         <h3>Product Details <span class="plus-details"><i class="fa fa-plus-circle" aria-hidden="true"></i></span></h3>
+             <hr class="divider">
+          <div class="row product-details-row">
+             <div class="col-md-6 col-sm-6 col-xs-6">
+              <h4>City: <span><p style="display:inline-block"><%= user.location %></p></span> </h4> 
+               <h4>Address: <span><p style="display:inline-block"><%= user.address %></p></span> </h4> 
+             <h4>Contact No.: <span><p style="display:inline-block"><%= user.contact %></p></span> </h4> 
+                
+              </div>
+              
+              <div class="col-md-6 col-sm-6 col-xs-6">
+              <h4>Email: <span><p style="display:inline-block"><%= user.email %></p></span> </h4> 
+               <h4>Industry: <span><p style="display:inline-block"><%= user.industry %></p></span> </h4> 
+         
+                
+              </div>
+             
+             </div>
+            
+         
+         </div>
+</div>
 
 
 

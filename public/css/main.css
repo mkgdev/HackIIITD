@@ -68,25 +68,26 @@ body{
     border : 0.1px solid  #d4d1d1;
 }
 
-.col-showdesc {
-    height: 100%;
-    
-}
-.col-showdetails{
-    height: 100%;
-}
-
-.container-show {
-    height: 100%;
+.container-show{
+    margin-top:80px;
 }
 
 .row-show{
     height: auto;
 }
 
+
 .col-showimg{
     height: 100%;
 
+}
+.col-showdesc {
+    height: 100%;
+    word-wrap: break-word;
+}
+.col-showdetails{
+    height: 100%;
+    margin-top: 4%;
 }
 
 .thumbnail-show {
@@ -94,5 +95,23 @@ body{
     height: 100%;
     width: 100%
 
+}
+.thumbnail-show {
+    
+    height: 100%;
+    width: 100%
+
+}
+
+
+.thumbnail-show img 
+{
+	width: 100%;
+    height: 100%;
+}
+
+.product-details-row{
+    
+    display: none;
 }
 

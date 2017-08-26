@@ -6,6 +6,7 @@ var passport     = require('passport');
 var User         = require('../models/user.js');
 var flash         = require("connect-flash");
 var customerDetail = require('../models/customer_detail.js')
+var middlware      = require('../middleware/index.js');
 
 
 //Landing page
@@ -33,7 +34,7 @@ router.get('/connect',function(req,res){
 
 router.get('/connect/show/:id', function(req,res)
 {          
-     customerDetail.find({}, function(err, customer)
+     customerDetail.findById(req.params.id, function(err, customer)
     {
         console.log(customer);
          res.render('../views/connectShow', {user:customer});
@@ -47,7 +48,7 @@ router.get('/connect/show/:id', function(req,res)
 
 //--------------------------------------------------
 
-router.get('/market',function(req,res){
+router.get('/market',middlware.isLoggedIn,function(req,res){
   res.send('Trade with industries near you');
 });
 
@@ -104,11 +105,11 @@ router.post("/register", function(req, res){
 
 });
 
-router.get("/register/details",function(req,res){
+router.get("/register/details",middlware.isLoggedIn,function(req,res){
   res.render('customer.ejs')
 });
 
-router.post("/register/details",function(req, res){
+router.post("/register/details",middlware.isLoggedIn,function(req, res){
   var customer = req.body.customer; 
     console.log('hello',customer);
   customerDetail.create(customer,function(err,customer){

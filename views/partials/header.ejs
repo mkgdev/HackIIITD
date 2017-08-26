@@ -5,7 +5,7 @@
     </title>
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../../css/main.css">
-    
+
  <script
 			  src="https://code.jquery.com/jquery-3.2.1.js"
 			  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
@@ -13,8 +13,8 @@
     </script>
           <script src="https://use.fontawesome.com/a51edad08b.js"></script>
     <body>
-        
-       
+
+
        <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -44,45 +44,42 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
   <%     if(!currentUser)  {  %>
-              
+
         <li><a href="/login">Login</a></li>
-        <li><a href="/register">Sign Up</a></li> 
+        <li><a href="/register">Sign Up</a></li>
 
              <%   } else {   %>
 
            <li><a href = "#"><%= currentUser.username %></a></li>
+                  <li><a href="/profile">Profile</a></li>
                   <li><a href="/logout">LogOut</a></li>
            <%     }       %>
-          
+
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-    
-        
+
+
 <div class="container">
 
-    <% if(error && error.length >0) { %>  
+    <% if(error && error.length >0) { %>
       <div class="alert alert-danger" role="alert">
-   
+
         <%= error %>
-    
-      </div>    
+
+      </div>
 
      <% } %>
 
 
-    <% if(success && success.length > 0) { %>  
+    <% if(success && success.length > 0) { %>
       <div class="alert alert-success" role="alert">
-   
+
         <%= success %>
-    
-      </div>    
+
+      </div>
 
     <% } %>
 
   </div>
-    
-
-    
-    

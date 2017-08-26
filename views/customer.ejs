@@ -4,8 +4,8 @@
     <div class="row">
 <h1 style="text-align: center;"> Fill Your Details </h1>
         <div style="width: 30%; margin: 30px auto;">
- <form action="/login" method = "POST">
-                        <div class="form-group" method="POST" action='/register/details'>
+ <form action='/register/details' method="POST" >
+                        <div class="form-group" >
 
                                  <input class="form-control" type = "text" name="customer[companyName]" placeholder="companyName" required>
                         </div>
@@ -54,11 +54,11 @@
 
                         <div class="form-group">
 
-                                 <textarea class="form-control" type="text" name="description" placeholder="description" required></textarea>
+                                 <textarea class="form-control" type="text" name="customer[description]" placeholder="description" required></textarea>
                         </div>
 
                         <div class="form-group">
-                                 <button class="btn btn-default btn-lg showcase-btn btn-block"> LogIn! </button>
+                                 <button class="btn btn-default btn-lg showcase-btn btn-block"> Confirm! </button>
                         </div>
 
 <!--

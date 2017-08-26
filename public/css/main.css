@@ -43,3 +43,56 @@ body{
     margin-left: 45%;
     margin-top: 1%;
 }
+
+.user-details {
+  
+    
+    box-shadow:5px 5px 2.5px #888888;
+}
+.user-details:hover{
+    
+     box-shadow: 10px 10px 5px #888888;
+    
+}
+
+.btn-collab{
+    
+    position: relative;
+  margin-top:51px;
+}
+
+
+.divider{
+    
+    width: 100%;
+    border : 0.1px solid  #d4d1d1;
+}
+
+.col-showdesc {
+    height: 100%;
+    
+}
+.col-showdetails{
+    height: 100%;
+}
+
+.container-show {
+    height: 100%;
+}
+
+.row-show{
+    height: auto;
+}
+
+.col-showimg{
+    height: 100%;
+
+}
+
+.thumbnail-show {
+    
+    height: 100%;
+    width: 100%
+
+}
+

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var collaborater = require('../models/customer_detail');
+
 var passport     = require('passport');
 var User         = require('../models/user.js');
 var flash         = require("connect-flash");
@@ -18,10 +18,12 @@ router.get('/', function(req, res){
 //        Connect Routes
 //=====================================
 router.get('/connect',function(req,res){
+    
 
-    collaborater.find({}, function(err, collab)
+    customerDetail.find({}, function(err, customer)
   {
-    res.render('../views/connect', {collab: collab});
+    console.log(customer);
+    res.render('../views/connect', {customer: customer});
 
    }
   );
@@ -31,10 +33,10 @@ router.get('/connect',function(req,res){
 
 router.get('/connect/show/:id', function(req,res)
 {          
-     collaborater.find({}, function(err, collab)
+     customerDetail.find({}, function(err, customer)
     {
-         
-         res.render('../views/connectShow', {collab:collab});
+        console.log(customer);
+         res.render('../views/connectShow', {user:customer});
          
          
      });
@@ -106,17 +108,19 @@ router.get("/register/details",function(req,res){
   res.render('customer.ejs')
 });
 
-router.post("/register/details",function(){
-  var customer = req.body.customer;
+router.post("/register/details",function(req, res){
+  var customer = req.body.customer; 
+    console.log('hello',customer);
   customerDetail.create(customer,function(err,customer){
     if(err) throw err;
-    else{
-      customer.username = req.user;
+   
+      
+      customer.username = req.username;
       customer.save();
-      //console.log(customer);
+      console.log('customer',customer);
       req.flash("success" + req.username);
       res.redirect('/');
-    }
+    
   });
 });
 

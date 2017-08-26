@@ -3,8 +3,8 @@ var schema = mongoose.Schema;
 
 var customerSchema = new schema({
   username : String,
-  customerName : {type:String,required:true},
-  companyName : {type:String,required:true},
+  customerName : String,
+  companyName : String,
   cluster : [{type:String}],
   email : String,
   contact : Number,
@@ -14,5 +14,4 @@ var customerSchema = new schema({
   industry : String,
   description : String
 });
-
-var customerDetail = module.exports = mongoose.model('Detail',customerSchema);
+ module.exports = mongoose.model('customerDetail',customerSchema);

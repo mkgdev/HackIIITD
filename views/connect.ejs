@@ -1,21 +1,24 @@
 <% include ./partials/header.ejs %>
-
+<div class="container">
+    
 <div class= "row">
     
- <%= collab.forEach(function(user)                   
+ <% customer.forEach(function(customer)                   
 { %>
+    <div class="row user-details">
+<div class="col-md-10">
     
-<div class="col-md-10" class="column-user">
-    
-    <h2><%= user.companyName %></h2>
-    <h4><%= user.industry %></h4>
-    <p><%= user.location %></p>
-    <p><%= user.address %></p>
+    <h2><%= customer.companyName %></h2>
+    <h4><%= customer.industry %></h4>
+    <p><%= customer.location %></p>
+    <p><%= customer.address %></p>
     </div>
 <div class="col-md-2">
-    <button class="btn btn-primary">Collaborator</button>
+    <a href="/connect/show/<%= customer._id %>" class="btn btn-primary btn-collab btn-lg">Collaborator</a>
     
     </div>
+        </div>
+      
 
 <% }); %>
 
@@ -23,6 +26,7 @@
 
 
 </div>
+    </div>
 
 
 
